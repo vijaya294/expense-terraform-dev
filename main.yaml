@@ -1,0 +1,10 @@
+#we must pass 2 variables through command line
+# component and evnvironment
+
+- name: "configure {{ component }} server"
+  hosts: all
+  become: yes #remote server
+  vars_files:
+  - "variables-{{ environment }}.yaml" #ansible server
+  roles:
+  - "{{ component }}"
